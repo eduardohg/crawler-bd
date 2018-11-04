@@ -10,7 +10,7 @@ class C1Spider(scrapy.Spider):
     def parse(self, response):
         for tabela1 in response.xpath('//table[@class="table tbl-t-most-victories"]/tbody/tr'):
             yield{
-                'selecao': tabela1.xpath('td[@class="tbl-teamname teamname-link"]/a/div/div[@class="t-n"]/span/text()').extract_first(),
+                'nome_selecao': tabela1.xpath('td[@class="tbl-teamname teamname-link"]/a/div/div[@class="t-n"]/span/text()').extract_first(),
                 'titulos': tabela1.xpath('td[@class="tbl-edition-wins"]/span/text()').extract_first()
             }
         

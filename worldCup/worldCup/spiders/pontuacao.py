@@ -10,10 +10,9 @@ class PontuacaoSpider(scrapy.Spider):
     def parse(self, response):
         for tabela2 in response.xpath('//table[@class="table tbl-alltimeranking"]/tbody/tr'):
             yield{
-                'rank': tabela2.xpath('td[@class="tbl-rank"]/span/text()').extract_first(),
-                'selecao': tabela2.xpath('td[@class="tbl-teamname teamname-link"]/a/div/div[@class="t-n"]/span/text()').extract_first(),
-                'pontos': tabela2.xpath('td[@class="tbl-points"]/span/text()').extract_first(),
-                'jogos': tabela2.xpath('td[@class="tbl-matches-num"]/span/text()').extract_first(),
+                'nome_selecao': tabela2.xpath('td[@class="tbl-teamname teamname-link"]/a/div/div[@class="t-n"]/span/text()').extract_first(),
+                'pontuacao': tabela2.xpath('td[@class="tbl-points"]/span/text()').extract_first(),
+                'partidas': tabela2.xpath('td[@class="tbl-matches-num"]/span/text()').extract_first(),
                 'vitorias': tabela2.xpath('td[@class="tbl-win"]/span/text()').extract_first(),
                 'empates': tabela2.xpath('td[@class="tbl-draw"]/span/text()').extract_first(),
                 'derrotas': tabela2.xpath('td[@class="tbl-lost"]/span/text()').extract_first()

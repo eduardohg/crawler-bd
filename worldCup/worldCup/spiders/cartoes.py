@@ -10,10 +10,8 @@ class CartoesSpider(scrapy.Spider):
     def parse(self, response):
         for tabela5 in response.xpath('//table[@class="table tbl-t-most-cards"]/tbody/tr'):
             yield{
-                'selecao': tabela5.xpath('td[@class="tbl-teamname teamname-link"]/a/div/div[@class="t-n"]/span/text()').extract_first(),
-                'cartoes': tabela5.xpath('td[@class="tbl-cards-tot"]/span/text()').extract_first(),
-                'amarelos': tabela5.xpath('td[@class="tbl-y"]/span/text()').extract_first(),
-                'dois amarelos': tabela5.xpath('td[@class="tbl-2yc"]/span/text()').extract_first(),
-                'vermelhos': tabela5.xpath('td[@class="tbl-rc"]/span/text()').extract_first(),
-                'partidas': tabela5.xpath('td[@class="tbl-matches-num"]/span/text()').extract_first()
+                'nome_selecao': tabela5.xpath('td[@class="tbl-teamname teamname-link"]/a/div/div[@class="t-n"]/span/text()').extract_first(),
+                'totao_cartoes': tabela5.xpath('td[@class="tbl-cards-tot"]/span/text()').extract_first(),
+                'cartoes_amarelos': tabela5.xpath('td[@class="tbl-y"]/span/text()').extract_first(),
+                'cartoes_vermelhos': tabela5.xpath('td[@class="tbl-rc"]/span/text()').extract_first()
             }

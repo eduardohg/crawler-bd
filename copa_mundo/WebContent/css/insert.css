@@ -1,0 +1,14 @@
+.form-group{
+    width:300px;
+}
+
+.formHistorico{
+    margin-top:60px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+}
+
+
